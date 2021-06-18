@@ -445,7 +445,7 @@ public class MultiChannelInputNodeTap {
     }
 }
 
-public protocol MultiChannelInputNodeTapDelegate: class {
+public protocol MultiChannelInputNodeTapDelegate: AnyObject {
     func tapInstalled(sender: MultiChannelInputNodeTap)
     func tapRemoved(sender: MultiChannelInputNodeTap)
 
