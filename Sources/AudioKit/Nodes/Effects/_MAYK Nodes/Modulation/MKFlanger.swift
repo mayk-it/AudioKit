@@ -8,7 +8,7 @@ import CAudioKit
 public class MKFlanger: MKNode, AudioUnitContainer, Toggleable {
 
     /// Unique four-letter identifier "flgr"
-    public static let ComponentDescription = AudioComponentDescription(effect: "flgr")
+    public static let ComponentDescription = AudioComponentDescription(effect: "mflg")
 
     /// Internal type of audio unit for this node
     public typealias AudioUnitType = InternalAU

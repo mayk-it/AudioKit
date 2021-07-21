@@ -10,7 +10,7 @@ import CAudioKit
 public class MKLowPassButterworthFilter: MKNode, AudioUnitContainer, Toggleable {
 
     /// Unique four-letter identifier "btlp"
-    public static let ComponentDescription = AudioComponentDescription(effect: "btlp")
+    public static let ComponentDescription = AudioComponentDescription(effect: "mblp")
 
     /// Internal type of audio unit for this node
     public typealias AudioUnitType = InternalAU

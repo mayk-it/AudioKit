@@ -13,7 +13,7 @@ import CAudioKit
 public class MKStringResonator: MKNode, AudioUnitContainer, Toggleable {
 
     /// Unique four-letter identifier "stre"
-    public static let ComponentDescription = AudioComponentDescription(effect: "stre")
+    public static let ComponentDescription = AudioComponentDescription(effect: "mstr")
 
     /// Internal type of audio unit for this node
     public typealias AudioUnitType = InternalAU

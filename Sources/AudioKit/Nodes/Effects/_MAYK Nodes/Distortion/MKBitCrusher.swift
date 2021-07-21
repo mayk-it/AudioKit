@@ -8,7 +8,7 @@ import CAudioKit
 public class MKBitCrusher: Node, AudioUnitContainer, Toggleable {
 
     /// Unique four-letter identifier "btcr"
-    public static let ComponentDescription = AudioComponentDescription(effect: "btcr")
+    public static let ComponentDescription = AudioComponentDescription(effect: "mbcr")
 
     /// Internal type of audio unit for this node
     public typealias AudioUnitType = InternalAU

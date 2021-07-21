@@ -8,7 +8,7 @@ import CAudioKit
 public class MKPitchShifter: MKNode, AudioUnitContainer, Toggleable {
 
     /// Unique four-letter identifier "pshf"
-    public static let ComponentDescription = AudioComponentDescription(effect: "pshf")
+    public static let ComponentDescription = AudioComponentDescription(effect: "mpsh")
 
     /// Internal type of audio unit for this node
     public typealias AudioUnitType = InternalAU
