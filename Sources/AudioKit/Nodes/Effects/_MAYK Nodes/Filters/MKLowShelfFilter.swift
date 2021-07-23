@@ -3,36 +3,39 @@
 
 import AVFoundation
 
-/// AudioKit version of Apple's HighPassFilter Audio Unit tailored for Mayk
+/// AudioKit version of Apple's LowShelfFilter Audio Unit
 ///
-open class MKHighPassFilter: MKNode, Toggleable {
+open class MKLowShelfFilter: MKNode, Toggleable {
 
-    fileprivate let effectAU = AVAudioUnitEffect(audioComponentDescription: AudioComponentDescription(appleEffect: kAudioUnitSubType_HighPassFilter))
+    fileprivate let effectAU = AVAudioUnitEffect(
+    audioComponentDescription:
+    AudioComponentDescription(appleEffect: kAudioUnitSubType_LowShelfFilter))
 
-    /// Cutoff Frequency (Hz) ranges from 10 to 22050 (Default: 6900)
+    /// Cutoff Frequency (Hz) ranges from 10 to 200 (Default: 80)
     @Parameter public var cutoffFrequency: AUValue
 
-    /// Resonance (dB) ranges from -20 to 40 (Default: 0)
-    @Parameter public var resonance: AUValue
+    /// Gain (dB) ranges from -40 to 40 (Default: 0)
+    @Parameter public var gain: AUValue
 
     /// Tells whether the node is processing (ie. started, playing, or active)
     public var isStarted = true
 
-    /// Initialize the high pass filter node
+    /// Initialize the low shelf filter node
     ///
-    /// - parameter cutoffFrequency: Cutoff Frequency (Hz) ranges from 10 to 22050 (Default: 6900)
-    /// - parameter resonance: Resonance (dB) ranges from -20 to 40 (Default: 0)
+    /// - parameter input: Input node to process
+    /// - parameter cutoffFrequency: Cutoff Frequency (Hz) ranges from 10 to 200 (Default: 80)
+    /// - parameter gain: Gain (dB) ranges from -40 to 40 (Default: 0)
     ///
     public init(
-        cutoffFrequency: AUValue = 6900,
-        resonance: AUValue = 0) {
+        cutoffFrequency: AUValue = 80,
+        gain: AUValue = 0) {
         super.init(avAudioNode: effectAU)
 
         self.$cutoffFrequency.associate(with: effectAU, index: 0)
-        self.$resonance.associate(with: effectAU, index: 1)
+        self.$gain.associate(with: effectAU, index: 1)
 
         self.cutoffFrequency = cutoffFrequency
-        self.resonance = resonance
+        self.gain = gain
     }
 
     /// Function to start, play, or activate the node, all do the same thing
@@ -47,3 +50,4 @@ open class MKHighPassFilter: MKNode, Toggleable {
         isStarted = false
     }
 }
+

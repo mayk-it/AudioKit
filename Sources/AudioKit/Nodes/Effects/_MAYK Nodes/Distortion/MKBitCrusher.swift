@@ -5,7 +5,7 @@ import AVFoundation
 import CAudioKit
 
 /// This will digitally degrade a signal.
-public class MKBitCrusher: Node, AudioUnitContainer, Toggleable {
+public class MKBitCrusher: MKNode, AudioUnitContainer, Toggleable {
 
     /// Unique four-letter identifier "btcr"
     public static let ComponentDescription = AudioComponentDescription(effect: "mbcr")
